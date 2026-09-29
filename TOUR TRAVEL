@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SKY TRAVEL - Vé máy bay</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f9fc;
+    color: #17324d;
+}
+
+/* TOP BAR */
+.topbar {
+    background: #f1f8fc;
+    padding: 10px 7%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #345;
+}
+
+/* HEADER */
+header {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 38px;
+}
+
+.logo-text h2 {
+    color: #075b91;
+    font-size: 23px;
+}
+
+.logo-text p {
+    font-size: 10px;
+    color: #777;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0878bd;
+}
+
+.consult {
+    background: #0878bd;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    min-height: 390px;
+    padding: 70px 8%;
+    background:
+        linear-gradient(90deg, rgba(225,246,255,0.98) 0%,
+        rgba(225,246,255,0.85) 42%,
+        rgba(225,246,255,0.1) 75%),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 520px;
+}
+
+.hero-script {
+    font-size: 25px;
+    font-style: italic;
+    color: #0878bd;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #075b91;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    line-height: 1.8;
+    color: #345;
+    margin-bottom: 25px;
+}
+
+/* CTA */
+.cta {
+    display: inline-block;
+    background: #075b91;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.cta:hover {
+    background: #043d63;
+}
+
+.cta-second {
+    background: white;
+    color: #075b91;
+    border: 1px solid #075b91;
+}
+
+/* STATS */
+.stats {
+    width: 78%;
+    margin: -35px auto 50px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 25px;
+}
+
+.stat {
+    text-align: center;
+    border-right: 1px solid #ddd;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat-icon {
+    font-size: 30px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 23px;
+    color: #075b91;
+    margin: 5px;
+}
+
+.stat span {
+    font-size: 12px;
+    color: #777;
+}
+
+/* SECTION */
+.section {
+    width: 88%;
+    margin: 50px auto;
+}
+
+.section-title {
+    margin-bottom: 25px;
+}
+
+.section-title small {
+    color: #07915d;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: 28px;
+    margin-top: 5px;
+}
+
+/* FLIGHTS */
+.flights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.flight {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.flight-image {
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    background: linear-gradient(135deg, #dff5ff, #b5e6fa);
+}
+
+.flight-content {
+    padding: 18px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e5f7ed;
+    color: #15945a;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.flight h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.route {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.price-old {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+.price {
+    font-size: 20px;
+    color: #075b91;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.discount {
+    color: #e53935;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.book {
+    margin-top: 15px;
+    width: 100%;
+    padding: 11px;
+    border: none;
+    background: #0878bd;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* SERVICES */
+.services {
+    background: #e5f7fa;
+    padding: 45px 6%;
+    margin-top: 50px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+}
+
+.service {
+    background: white;
+    padding: 25px 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.service-icon {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.service p {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* PROMOTION */
+.promotion {
+    width: 88%;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(100deg, #075b91, #0791c9);
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.promotion h2 {
+    margin-bottom: 8px;
+}
+
+.promotion p {
+    font-size: 14px;
+}
+
+/* FOOTER */
+footer {
+    background: #eef7fb;
+    padding: 45px 7%;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+footer h3 {
+    color: #075b91;
+    margin-bottom: 15px;
+}
+
+footer p,
+footer li {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 8px;
+    list-style: none;
+}
+
+.copyright {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+    color: #777;
+}
+
+/* MOBILE */
+@media(max-width: 800px) {
+
+    nav {
+        display: none;
+    }
+
+    .topbar {
+        font-size: 10px;
+    }
+
+    .stats {
+        width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .stat {
+        border-right: none;
+    }
+
+    .flights {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .promotion {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP -->
+<div class="topbar">
+    <span>📍 Seoul · Korea</span>
+    <span>🕘 상담 가능 시간: 07:30 - 17:30</span>
+    <span>☎ Hotline: 010-1234-5678</span>
+</div>
+
+
+<!-- HEADER -->
+<header>
+
+    <div class="logo">
+        <div class="logo-icon">✈️</div>
+
+        <div class="logo-text">
+            <h2>SKY TRAVEL</h2>
+            <p>TRAVEL · FLIGHT · EXPERIENCE</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#">홈</a>
+        <a href="#">항공권</a>
+        <a href="#">여행지</a>
+        <a href="#">서비스</a>
+        <a href="#">이벤트</a>
+        <a href="#">고객센터</a>
+        <a class="consult" href="#">예약 문의</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-script">
+            새로운 여행을 시작하세요
+        </div>
+
+        <h1>
+            특별한 항공권<br>
+            여행의 시작
+        </h1>
+
+        <p>
+            원하는 목적지의 항공권을 쉽고 편리하게 찾아보세요.
+            특별한 가격으로 즐거운 여행을 준비할 수 있습니다.
+        </p>
+
+        <!-- A/B TEST -->
+        <a href="#" class="cta" id="mainCTA">
+            지금 항공권 예약하고 여행을 시작하세요!
+        </a>
+
+        <a href="#" class="cta cta-second">
+            항공권 알아보기
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+<div class="stats">
+
+    <div class="stat">
+        <div class="stat-icon">👥</div>
+        <strong>10+</strong>
+        <span>년간 여행 경험</span>
+    </div>
+
+    <div class="stat">
+        <div class="stat-icon">✈️</div>
+        <strong>500+</strong>
+        <span>다양한 항공편</span>
+    </div>
+
+    <div class="stat">
+        <div class="stat-icon">👍</div>
+        <strong>50,000+</strong>
+        <span>신뢰하는 고객</span>
+    </div>
+
+    <div class="stat">
+        <div class="stat-icon">🎧</div>
+        <strong>24/7</strong>
+        <span>고객 지원</span>
+    </div>
+
+</div>
+
+
+<!-- FLIGHTS -->
+<section class="section">
+
+    <div class="section-title">
+        <small>인기 항공권</small>
+        <h2>많은 고객이 선택한 여행지</h2>
+    </div>
+
+    <div class="flights">
+
+        <div class="flight">
+            <div class="flight-image">🏝️</div>
+            <div class="flight-content">
+                <span class="tag">인기 여행지</span>
+                <h3>서울 → 다낭</h3>
+                <p class="route">왕복 · 4박 5일</p>
+                <div class="price-old">₩450,000</div>
+                <div class="price">₩399,000</div>
+                <div class="discount">10% 특별 할인</div>
+                <button class="book">항공권 보기</button>
+            </div>
+        </div>
+
+
+        <div class="flight">
+            <div class="flight-image">🌴</div>
+            <div class="flight-content">
+                <span class="tag">해외 여행</span>
+                <h3>서울 → 방콕</h3>
+                <p class="route">왕복 · 5박 6일</p>
+                <div class="price-old">₩520,000</div>
+                <div class="price">₩468,000</div>
+                <div class="discount">10% 특별 할인</div>
+                <button class="book">항공권 보기</button>
+            </div>
+        </div>
+
+
+        <div class="flight">
+            <div class="flight-image">🏖️</div>
+            <div class="flight-content">
+                <span class="tag">추천 여행지</span>
+                <h3>서울 → 괌</h3>
+                <p class="route">왕복 · 4박 5일</p>
+                <div class="price-old">₩620,000</div>
+                <div class="price">₩558,000</div>
+                <div class="discount">10% 특별 할인</div>
+                <button class="book">항공권 보기</button>
+            </div>
+        </div>
+
+
+        <div class="flight">
+            <div class="flight-image">🌆</div>
+            <div class="flight-content">
+                <span class="tag">해외 여행</span>
+                <h3>서울 → 싱가포르</h3>
+                <p class="route">왕복 · 4박 5일</p>
+                <div class="price-old">₩700,000</div>
+                <div class="price">₩630,000</div>
+                <div class="discount">10% 특별 할인</div>
+                <button class="book">항공권 보기</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section class="services">
+
+    <div class="section-title">
+        <small>TRAVEL SERVICE</small>
+        <h2>편리한 여행을 위한 서비스</h2>
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service">
+            <div class="service-icon">✈️</div>
+            <p>항공권<br>예약</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🏨</div>
+            <p>호텔<br>예약</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🛂</div>
+            <p>비자<br>안내</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🚗</div>
+            <p>렌터카<br>서비스</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🎫</div>
+            <p>여행<br>티켓</p>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🏖️</div>
+            <p>여행<br>패키지</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROMOTION -->
+<section class="promotion">
+
+    <div>
+        <h2>✈️ 오늘의 특별 항공권</h2>
+        <p>
+            인기 여행지 항공권을 특별한 가격으로 만나보세요.
+        </p>
+    </div>
+
+    <a href="#" class="cta">
+        항공권 예약하기
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>SKY TRAVEL</h3>
+            <p>
+                편리하고 즐거운 여행을 위한<br>
+                항공권 예약 서비스입니다.
+            </p>
+            <p>✈️ 🅵 📷 ▶️</p>
+        </div>
+
+        <div>
+            <h3>회사</h3>
+            <ul>
+                <li>회사 소개</li>
+                <li>서비스</li>
+                <li>이용약관</li>
+                <li>개인정보처리방침</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>항공권</h3>
+            <ul>
+                <li>국내 항공권</li>
+                <li>해외 항공권</li>
+                <li>특가 항공권</li>
+                <li>예약 확인</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>고객센터</h3>
+            <ul>
+                <li>☎ 010-1234-5678</li>
+                <li>✉ skytravel@example.com</li>
+                <li>🕘 07:30 - 17:30</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 SKY TRAVEL. All Rights Reserved.
+    </div>
+
+</footer>
+
+</body>
+</html>
